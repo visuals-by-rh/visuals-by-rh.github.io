@@ -186,6 +186,15 @@ p { margin: 0; }
   font-size: 13px;
   font-weight: 600;
 }
+.card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+.card-img + .chip { position: relative; margin-top: auto; }
 .num { font-family: var(--font-head); font-weight: 700; color: var(--accent); }
 .slot-m2 { left: 0; top: 0; z-index: 1; }
 .slot-m1 { left: 14.8%; top: 17.2%; z-index: 2; }
