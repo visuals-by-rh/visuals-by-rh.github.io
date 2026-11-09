@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regula Huber – Visuals</title>
+  <meta name="description" content="Portfolio of Regula Huber: graphic, digital, photo and video work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header id="top" class="hero">
+    <div class="topbar">
+      <a href="#top" class="brand"><span class="dot" aria-hidden="true"></span>Regula Huber</a>
+
+      <nav class="nav-tab" aria-label="Main" data-i18n-aria="navLabel">
+        <a href="#graphic" class="nav-link" data-i18n="graphic">Graphic</a>
+        <a href="#digital" class="nav-link" data-i18n="digital">Digital</a>
+        <a href="#photo" class="nav-link" data-i18n="photo">Photo</a>
+        <a href="#video" class="nav-link" data-i18n="video">Video</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="#about" class="nav-about" data-i18n="about">About</a>
+      </nav>
+
+      <span class="break" aria-hidden="true"></span>
+
+      <div class="lang" role="group" aria-label="Language" data-i18n-aria="langLabel">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      </div>
+    </div>
+
+    <!-- fanned carousel -->
+    <div class="stage-wrap">
+      <div class="fan-stage">
+        <button type="button" class="fan-card slot-m2" style="--card: #E2D6D2" data-href="#graphic">
+          <span class="thumb" data-i18n="thumb">[Thumbnail]</span>
+          <span class="chip"><span class="num">01</span><span class="card-name" data-i18n="graphic">Graphic</span></span>
+          <span class="card-desc" data-i18n="dGraphic" hidden>Identity, print, editorial</span>
+        </button>
+        <button type="button" class="fan-card slot-m1" style="--card: #3FB3D1" data-href="#digital">
+          <span class="thumb" data-i18n="thumb">[Thumbnail]</span>
+          <span class="chip"><span class="num">02</span><span class="card-name" data-i18n="digital">Digital</span></span>
+          <span class="card-desc" data-i18n="dDigital" hidden>Web, UI, interaction</span>
+        </button>
+        <button type="button" class="fan-card slot-0" style="--card: #8EEAF2" data-href="#photo">
+          <span class="thumb" data-i18n="thumb">[Thumbnail]</span>
+          <span class="chip"><span class="num">03</span><span class="card-name" data-i18n="photo">Photo</span></span>
+          <span class="card-desc" data-i18n="dPhoto" hidden>Portrait, product, places</span>
+        </button>
+        <button type="button" class="fan-card slot-p1" style="--card: #63E6B4" data-href="#video">
+          <span class="thumb" data-i18n="thumb">[Thumbnail]</span>
+          <span class="chip"><span class="num">04</span><span class="card-name" data-i18n="video">Video</span></span>
+          <span class="card-desc" data-i18n="dVideo" hidden>Motion, short film, edit</span>
+        </button>
+        <button type="button" class="fan-card slot-p2" style="--card: #9DB9C7" data-href="#graphic">
+          <span class="thumb" data-i18n="thumb">[Thumbnail]</span>
+          <span class="chip"><span class="num">05</span><span class="card-name" data-i18n="diverse">Diverse</span></span>
+          <span class="card-desc" data-i18n="dDiverse" hidden>Experiments, side projects, everything in between</span>
+        </button>
+      </div>
+
+      <div class="caption">
+        <div class="caption-text" aria-live="polite">
+          <h1 id="active-name">Photo</h1>
+          <p id="active-desc">Portrait, product, places</p>
+        </div>
+        <div class="controls">
+          <button type="button" class="round" id="prev" aria-label="Previous category" data-i18n-aria="prev">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          </button>
+          <a href="#photo" class="btn btn-dark" id="active-link" data-i18n="viewProjects">View projects</a>
+          <button type="button" class="round" id="next" aria-label="Next category" data-i18n-aria="next">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SELECTED WORK -->
+    <section id="work" class="work">
+      <div class="work-head">
+        <h2 data-i18n="selectedWork">Selected work</h2>
+        <span class="muted" data-i18n="workSub">Every project sits on a quiet white stage</span>
+      </div>
+
+      <div class="work-grid">
+        <a id="graphic" href="#graphic" class="work-item span-7">
+          <div class="work-media ratio-wide">
+            <span class="tab" data-i18n="graphic">Graphic</span>
+            <span data-i18n="projectImage">[Project image]</span>
+          </div>
+          <div class="work-meta"><span data-i18n="projectTitle">[Project title]</span><span class="muted" data-i18n="year">[Year]</span></div>
+        </a>
+        <a id="digital" href="#digital" class="work-item span-5">
+          <div class="work-media ratio-tall">
+            <span class="tab" data-i18n="digital">Digital</span>
+            <span data-i18n="projectImage">[Project image]</span>
+          </div>
+          <div class="work-meta"><span data-i18n="projectTitle">[Project title]</span><span class="muted" data-i18n="year">[Year]</span></div>
+        </a>
+        <a id="photo" href="#photo" class="work-item span-5">
+          <div class="work-media ratio-tall">
+            <span class="tab" data-i18n="photo">Photo</span>
+            <span data-i18n="projectImage">[Project image]</span>
+          </div>
+          <div class="work-meta"><span data-i18n="projectTitle">[Project title]</span><span class="muted" data-i18n="year">[Year]</span></div>
+        </a>
+        <a id="video" href="#video" class="work-item span-7">
+          <div class="work-media ratio-wide is-video">
+            <span class="tab" data-i18n="video">Video</span>
+            <span class="play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M7 4l13 8-13 8z"/></svg></span>
+            <span data-i18n="videoStill">[Video still]</span>
+          </div>
+          <div class="work-meta"><span data-i18n="projectTitle">[Project title]</span><span class="muted" data-i18n="year">[Year]</span></div>
+        </a>
+      </div>
+
+      <div class="center">
+        <a href="#work" class="btn btn-outline">
+          <span data-i18n="viewAll">View all projects</span>
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <span class="tab tab-lg">
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        <span data-i18n="aboutMe">About me</span>
+      </span>
+      <div class="about-inner">
+        <div class="portrait">
+          <span data-i18n="portrait">[Portrait photo]</span>
+          <span class="portrait-dot" aria-hidden="true"></span>
+        </div>
+        <div class="about-text">
+          <h2 data-i18n="aboutHeading">[A one-line statement about how you work.]</h2>
+          <p data-i18n="aboutText">[Placeholder: a short paragraph about your background, what you love making, and who you like working with. Two to four sentences is plenty.]</p>
+          <div class="actions">
+            <a href="mailto:[your@email]" class="btn btn-dark" data-i18n="contact">Get in touch</a>
+            <a href="#about" class="btn btn-outline" data-i18n="cv">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© 2026 Regula Huber</span>
+    <span class="social">
+      <a href="#top">Instagram</a>
+      <a href="#top">Behance</a>
+      <a href="#top">LinkedIn</a>
+    </span>
+  </footer>
+
+</body>
+</html>
