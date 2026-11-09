@@ -27,6 +27,10 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000.
 
+## Branches
+
+- Clean, readable branch names that say what the branch does, e.g. `add-homepage`, `fix-mobile-nav`.
+
 ## Commits
 
 - Concise and atomic: one logical change per commit.
