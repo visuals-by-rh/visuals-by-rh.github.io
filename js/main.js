@@ -136,8 +136,8 @@
     contact: 'Kontakt aufnehmen', cv: 'Lebenslauf herunterladen',
     filterLabel: 'Nach Kategorie filtern', all: 'Alle', portraits: 'Porträts', branding: 'Branding',
     events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noPhotos: 'Noch keine Fotos in dieser Kategorie.',
-    more: 'Mehr', backToPhoto: 'Zurück zu Foto', labelYear: 'Jahr', labelLocation: 'Ort', locationValue: '[Ort]',
-    projectIntro: '[Ein paar Sätze zum Projekt: Idee, Model, Ort.]'
+    more: 'Mehr', backToPhoto: 'Zurück zu Foto', labelYear: 'Jahr', labelLocation: 'Ort',
+    introBeautyMeetsNature: 'Manchmal braucht es nur ein Model, eine schöne Location und die Blitzausrüstung. Ich liebe es, mit dem Zusammenspiel von Menschen und Objekten zu experimentieren, unerwartete Kombinationen auszuprobieren und etwas Einzigartiges zu schaffen.'
   };
 
   // English comes from the HTML itself, captured before any swap.
