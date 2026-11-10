@@ -135,7 +135,9 @@
     aboutText: '[Platzhalter: ein kurzer Absatz über deinen Hintergrund, was du am liebsten gestaltest und mit wem du gerne zusammenarbeitest. Zwei bis vier Sätze reichen.]',
     contact: 'Kontakt aufnehmen', cv: 'Lebenslauf herunterladen',
     filterLabel: 'Nach Kategorie filtern', all: 'Alle', portraits: 'Porträts', branding: 'Branding',
-    events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noPhotos: 'Noch keine Fotos in dieser Kategorie.'
+    events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noPhotos: 'Noch keine Fotos in dieser Kategorie.',
+    more: 'Mehr', backToPhoto: 'Zurück zu Foto', labelYear: 'Jahr', labelLocation: 'Ort', locationValue: '[Ort]',
+    projectIntro: '[Ein paar Sätze zum Projekt: Idee, Model, Ort.]'
   };
 
   // English comes from the HTML itself, captured before any swap.

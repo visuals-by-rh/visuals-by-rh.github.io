@@ -14,6 +14,7 @@ Design proposal: https://claude.ai/artifact/Hv2pcb1JzeR6Cdmju54PZf
 
 - `index.html` – the homepage. English copy lives here.
 - `photo/index.html` – the Photo page: filters and gallery. Its header and footer are copies of the homepage's; keep them in sync.
+- `photo/<project>/index.html` – one page per photo project (e.g. `photo/beauty-meets-nature/`). Same header and footer copy; paths start with `../../`.
 - `assets/` – images. Photos for the Photo page go in `assets/photo/`.
 - `css/style.css` – all styles; colors and sizes as variables on `:root`.
 - `js/main.js` – shared by both pages: carousel (homepage only), photo filters (Photo page only), EN/DE toggle (German strings live here).
@@ -31,6 +32,14 @@ When changing `css/style.css` or `js/main.js`, bump the `?v=` number on its link
 4. Set `data-tags` to one or more of `portraits branding events wedding sport`, separated by spaces. A photo with several tags shows under each of those filters.
 
 Photos appear in the order they're listed. A new filter needs a button in `.filters` (`data-filter` + `data-i18n`) and a German label in `js/main.js`.
+
+## Adding a project page
+
+1. Copy the folder `photo/beauty-meets-nature/` and rename it (lowercase with dashes, e.g. `photo/summer-wedding/`).
+2. In the copy, change `<title>`, the `<h1>`, the tag list, the intro text, year, location and the `<figure>` photos.
+3. On the Photo page, wrap that photo's `<img>` in `<a href="summer-wedding/" class="shot-link">` and add the "More" tab and hidden title, as on the first photo.
+
+Project titles are names and stay the same in German. Intro text needs a `data-i18n` key with a German version in `js/main.js`.
 
 ## Preview locally
 
