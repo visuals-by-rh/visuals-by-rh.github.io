@@ -6,7 +6,8 @@
   var nameEl = document.getElementById('active-name');
   var descEl = document.getElementById('active-desc');
   var linkEl = document.getElementById('active-link');
-  var slots = { '-2': 'slot-m2', '-1': 'slot-m1', '0': 'slot-0', '1': 'slot-p1', '2': 'slot-p2' };
+  // left, front and right are visible; the 4th card waits hidden behind the front one
+  var slots = { '-1': 'slot-m1', '0': 'slot-0', '1': 'slot-p1', '2': 'slot-back' };
   var n = cards.length;
   var active = 2;
   var labels = { show: 'Show {name}', selected: '{name} (selected)' };
@@ -17,8 +18,11 @@
 
   function render() {
     cards.forEach(function (card, i) {
-      var off = ((i - active + n + 2) % n) - 2;
+      var off = ((i - active + n + 1) % n) - 1;
       card.className = 'fan-card ' + slots[String(off)];
+      var hiddenCard = off === 2;
+      card.tabIndex = hiddenCard ? -1 : 0;
+      if (hiddenCard) card.setAttribute('aria-hidden', 'true'); else card.removeAttribute('aria-hidden');
       var name = card.querySelector('.card-name').textContent;
       card.setAttribute('aria-label', fill(off === 0 ? labels.selected : labels.show, name));
       if (off === 0) {
@@ -123,9 +127,9 @@
   /* ---------- EN/DE language toggle ---------- */
   var de = {
     navLabel: 'Hauptnavigation', langLabel: 'Sprache',
-    graphic: 'Grafik', digital: 'Digital', photo: 'Foto', video: 'Video', diverse: 'Diverses', about: 'Über mich',
+    graphic: 'Grafik', digital: 'Digital', photo: 'Foto', video: 'Video', about: 'Über mich',
     dGraphic: 'Identität, Print, Editorial', dDigital: 'Web, UI, Interaktion', dPhoto: 'Porträt, Produkt, Orte',
-    dVideo: 'Motion, Kurzfilm, Schnitt', dDiverse: 'Experimente, Nebenprojekte und alles dazwischen',
+    dVideo: 'Motion, Kurzfilm, Schnitt',
     thumb: '[Vorschaubild]', viewProjects: 'Projekte ansehen', prev: 'Vorherige Kategorie', next: 'Nächste Kategorie',
     show: '{name} anzeigen', selected: '{name} (ausgewählt)',
     selectedWork: 'Ausgewählte Arbeiten', workSub: 'Jedes Projekt auf einer ruhigen, weissen Bühne',
