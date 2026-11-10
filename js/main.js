@@ -135,7 +135,7 @@
     aboutText: '[Platzhalter: ein kurzer Absatz über deinen Hintergrund, was du am liebsten gestaltest und mit wem du gerne zusammenarbeitest. Zwei bis vier Sätze reichen.]',
     contact: 'Kontakt aufnehmen', cv: 'Lebenslauf herunterladen',
     filterLabel: 'Nach Kategorie filtern', all: 'Alle', portraits: 'Porträts', branding: 'Branding',
-    events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noPhotos: 'Noch keine Fotos in dieser Kategorie.',
+    events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noItems: 'Noch keine Projekte in dieser Kategorie.',
     more: 'Mehr', backToPhoto: 'Zurück zu Foto', labelYear: 'Jahr', labelLocation: 'Ort',
     locZurich: 'Zürich',
     introLiquidsAtelier: 'Grossartige Marken verdienen grossartige Fotos. Wir hatten viel Spass, diese Bilder an einem warmen Sommerabend zu gestalten und mit dem wechselnden Tageslicht zu spielen, während die Sonne langsam unterging. So konnten wir mit verschiedenen Stimmungen und Stilen experimentieren – entstanden ist eine vielseitige Bildsammlung, die dieser Marke einen grossartigen Start ermöglicht.',
