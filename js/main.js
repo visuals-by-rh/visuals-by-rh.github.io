@@ -34,50 +34,91 @@
     render();
   }
 
-  cards.forEach(function (card, i) {
-    card.addEventListener('click', function () { go(i); });
-  });
-  document.getElementById('prev').addEventListener('click', function () { go(active - 1); });
-  document.getElementById('next').addEventListener('click', function () { go(active + 1); });
-
-  /* drag / swipe: left shows the next card, right the previous one */
+  // The carousel only exists on the homepage.
   var stage = document.querySelector('.fan-stage');
-  var drag = null;
-  var suppressClick = false;
+  if (stage) {
+    cards.forEach(function (card, i) {
+      card.addEventListener('click', function () { go(i); });
+    });
+    document.getElementById('prev').addEventListener('click', function () { go(active - 1); });
+    document.getElementById('next').addEventListener('click', function () { go(active + 1); });
 
-  stage.addEventListener('pointerdown', function (e) {
-    if (e.button !== 0) return;
-    drag = { id: e.pointerId, x: e.clientX, dx: 0, moving: false };
-  });
-  stage.addEventListener('pointermove', function (e) {
-    if (!drag || e.pointerId !== drag.id) return;
-    drag.dx = e.clientX - drag.x;
-    if (!drag.moving && Math.abs(drag.dx) > 8) {
-      drag.moving = true;
-      stage.setPointerCapture(e.pointerId);
-      stage.classList.add('is-dragging');
+    /* drag / swipe: left shows the next card, right the previous one */
+    var drag = null;
+    var suppressClick = false;
+
+    stage.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) return;
+      drag = { id: e.pointerId, x: e.clientX, dx: 0, moving: false };
+    });
+    stage.addEventListener('pointermove', function (e) {
+      if (!drag || e.pointerId !== drag.id) return;
+      drag.dx = e.clientX - drag.x;
+      if (!drag.moving && Math.abs(drag.dx) > 8) {
+        drag.moving = true;
+        stage.setPointerCapture(e.pointerId);
+        stage.classList.add('is-dragging');
+      }
+      if (drag.moving) stage.style.transform = 'translateX(' + drag.dx * 0.25 + 'px)';
+    });
+    function endDrag(e) {
+      if (!drag || e.pointerId !== drag.id) return;
+      if (drag.moving) {
+        var dist = Math.abs(drag.dx);
+        var steps = dist > stage.offsetWidth * 0.6 ? 2 : (dist >= 50 ? 1 : 0);
+        if (steps) go(active + (drag.dx < 0 ? steps : -steps));
+        stage.style.transform = '';
+        stage.classList.remove('is-dragging');
+        // the click that follows a drag must not pick a card
+        suppressClick = true;
+        setTimeout(function () { suppressClick = false; }, 0);
+      }
+      drag = null;
     }
-    if (drag.moving) stage.style.transform = 'translateX(' + drag.dx * 0.25 + 'px)';
-  });
-  function endDrag(e) {
-    if (!drag || e.pointerId !== drag.id) return;
-    if (drag.moving) {
-      var dist = Math.abs(drag.dx);
-      var steps = dist > stage.offsetWidth * 0.6 ? 2 : (dist >= 50 ? 1 : 0);
-      if (steps) go(active + (drag.dx < 0 ? steps : -steps));
-      stage.style.transform = '';
-      stage.classList.remove('is-dragging');
-      // the click that follows a drag must not pick a card
-      suppressClick = true;
-      setTimeout(function () { suppressClick = false; }, 0);
-    }
-    drag = null;
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointercancel', endDrag);
+    stage.addEventListener('click', function (e) {
+      if (suppressClick) { e.stopPropagation(); e.preventDefault(); }
+    }, true);
   }
-  stage.addEventListener('pointerup', endDrag);
-  stage.addEventListener('pointercancel', endDrag);
-  stage.addEventListener('click', function (e) {
-    if (suppressClick) { e.stopPropagation(); e.preventDefault(); }
-  }, true);
+
+  /* ---------- photo filters (Photo page) ---------- */
+  var gallery = document.querySelector('.gallery');
+  if (gallery) {
+    var shots = gallery.querySelectorAll('.shot');
+    var pills = document.querySelectorAll('.filter');
+    var emptyEl = document.querySelector('.gallery-empty');
+    var tagNames = Array.prototype.map.call(pills, function (b) { return b.dataset.filter; });
+
+    var applyFilter = function (tag) {
+      var shown = 0;
+      Array.prototype.forEach.call(shots, function (shot) {
+        var tags = (shot.dataset.tags || '').split(/\s+/);
+        var show = tag === 'all' || tags.indexOf(tag) !== -1;
+        shot.hidden = !show;
+        if (show) shown++;
+      });
+      Array.prototype.forEach.call(pills, function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.filter === tag));
+      });
+      emptyEl.hidden = shown > 0;
+    };
+
+    var tagFromHash = function () {
+      var h = decodeURIComponent(location.hash.slice(1));
+      return tagNames.indexOf(h) !== -1 ? h : 'all';
+    };
+
+    Array.prototype.forEach.call(pills, function (b) {
+      b.addEventListener('click', function () {
+        var tag = b.dataset.filter;
+        history.replaceState(null, '', tag === 'all' ? location.pathname : '#' + tag);
+        applyFilter(tag);
+      });
+    });
+    window.addEventListener('hashchange', function () { applyFilter(tagFromHash()); });
+    applyFilter(tagFromHash());
+  }
 
   /* ---------- EN/DE language toggle ---------- */
   var de = {
@@ -92,7 +133,9 @@
     viewAll: 'Alle Projekte ansehen', aboutMe: 'Über mich', portrait: '[Porträtfoto]',
     aboutHeading: '[Ein Satz darüber, wie du arbeitest.]',
     aboutText: '[Platzhalter: ein kurzer Absatz über deinen Hintergrund, was du am liebsten gestaltest und mit wem du gerne zusammenarbeitest. Zwei bis vier Sätze reichen.]',
-    contact: 'Kontakt aufnehmen', cv: 'Lebenslauf herunterladen'
+    contact: 'Kontakt aufnehmen', cv: 'Lebenslauf herunterladen',
+    filterLabel: 'Nach Kategorie filtern', all: 'Alle', portraits: 'Porträts', branding: 'Branding',
+    events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noPhotos: 'Noch keine Fotos in dieser Kategorie.'
   };
 
   // English comes from the HTML itself, captured before any swap.
