@@ -182,8 +182,10 @@ p { margin: 0; }
   justify-content: space-between;
   text-align: left;
   transition: left .55s var(--ease), top .55s var(--ease), opacity .4s ease, box-shadow .3s ease;
+  color: var(--ink);
+  -webkit-user-drag: none;
 }
-.fan-card:hover { box-shadow: 0 18px 40px rgba(20, 40, 70, .18); }
+.fan-card:hover { box-shadow: 0 18px 40px rgba(20, 40, 70, .18); color: var(--ink); }
 .thumb { align-self: center; margin-top: 42%; font-size: 13px; color: rgba(20, 20, 20, .55); }
 .chip {
   margin: 14px;
