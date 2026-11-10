@@ -158,7 +158,7 @@ p { margin: 0; }
 .fan-stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 1515 / 605;
+  aspect-ratio: 1515 / 501;
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
@@ -170,7 +170,7 @@ p { margin: 0; }
 .fan-card {
   position: absolute;
   width: 25.3%;
-  height: 63.3%;
+  height: 76.4%;
   padding: 0;
   border: 0;
   border-radius: 22px;
@@ -209,9 +209,9 @@ p { margin: 0; }
 }
 .card-img + .chip { position: relative; margin-top: auto; }
 .num { font-family: var(--font-head); font-weight: 700; color: var(--accent); }
-.slot-m1 { left: 14.8%; top: 17.2%; z-index: 2; }
-.slot-0 { left: 37.35%; top: 36.7%; z-index: 3; }
-.slot-p1 { left: 59.9%; top: 17.2%; z-index: 2; }
+.slot-m1 { left: 14.8%; top: 0; z-index: 2; }
+.slot-0 { left: 37.35%; top: 23.6%; z-index: 3; }
+.slot-p1 { left: 59.9%; top: 0; z-index: 2; }
 .slot-back { left: 37.35%; top: 0; opacity: 0; pointer-events: none; z-index: 0; }
 
 .caption {
