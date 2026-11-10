@@ -40,6 +40,45 @@
   document.getElementById('prev').addEventListener('click', function () { go(active - 1); });
   document.getElementById('next').addEventListener('click', function () { go(active + 1); });
 
+  /* drag / swipe: left shows the next card, right the previous one */
+  var stage = document.querySelector('.fan-stage');
+  var drag = null;
+  var suppressClick = false;
+
+  stage.addEventListener('pointerdown', function (e) {
+    if (e.button !== 0) return;
+    drag = { id: e.pointerId, x: e.clientX, dx: 0, moving: false };
+  });
+  stage.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    drag.dx = e.clientX - drag.x;
+    if (!drag.moving && Math.abs(drag.dx) > 8) {
+      drag.moving = true;
+      stage.setPointerCapture(e.pointerId);
+      stage.classList.add('is-dragging');
+    }
+    if (drag.moving) stage.style.transform = 'translateX(' + drag.dx * 0.25 + 'px)';
+  });
+  function endDrag(e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    if (drag.moving) {
+      var dist = Math.abs(drag.dx);
+      var steps = dist > stage.offsetWidth * 0.6 ? 2 : (dist >= 50 ? 1 : 0);
+      if (steps) go(active + (drag.dx < 0 ? steps : -steps));
+      stage.style.transform = '';
+      stage.classList.remove('is-dragging');
+      // the click that follows a drag must not pick a card
+      suppressClick = true;
+      setTimeout(function () { suppressClick = false; }, 0);
+    }
+    drag = null;
+  }
+  stage.addEventListener('pointerup', endDrag);
+  stage.addEventListener('pointercancel', endDrag);
+  stage.addEventListener('click', function (e) {
+    if (suppressClick) { e.stopPropagation(); e.preventDefault(); }
+  }, true);
+
   /* ---------- EN/DE language toggle ---------- */
   var de = {
     navLabel: 'Hauptnavigation', langLabel: 'Sprache',

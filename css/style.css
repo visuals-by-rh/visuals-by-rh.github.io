@@ -155,7 +155,18 @@ p { margin: 0; }
 
 /* fanned carousel */
 .stage-wrap { max-width: 1240px; margin: 0 auto; padding: 96px 24px 0; }
-.fan-stage { position: relative; width: 100%; aspect-ratio: 1515 / 605; }
+.fan-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1515 / 605;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  transition: transform .3s var(--ease);
+}
+.fan-stage.is-dragging { cursor: grabbing; transition: none; }
+.fan-stage.is-dragging .fan-card { cursor: grabbing; }
 .fan-card {
   position: absolute;
   width: 25.3%;
@@ -385,5 +396,5 @@ p { margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .fan-card, .work-media { transition: none; }
+  .fan-stage, .fan-card, .work-media { transition: none; }
 }
