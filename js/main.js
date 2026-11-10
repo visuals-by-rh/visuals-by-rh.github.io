@@ -136,8 +136,10 @@
     contact: 'Kontakt aufnehmen', cv: 'Lebenslauf herunterladen',
     filterLabel: 'Nach Kategorie filtern', all: 'Alle', portraits: 'Porträts', branding: 'Branding',
     events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noPhotos: 'Noch keine Fotos in dieser Kategorie.',
-    more: 'Mehr', backToPhoto: 'Zurück zu Foto', labelYear: 'Jahr', labelLocation: 'Ort', locationValue: '[Ort]',
-    projectIntro: '[Ein paar Sätze zum Projekt: Idee, Model, Ort.]'
+    more: 'Mehr', backToPhoto: 'Zurück zu Foto', labelYear: 'Jahr', labelLocation: 'Ort',
+    locZurich: 'Zürich',
+    introLiquidsAtelier: 'Grossartige Marken verdienen grossartige Fotos. Wir hatten viel Spass, diese Bilder an einem warmen Sommerabend zu gestalten und mit dem wechselnden Tageslicht zu spielen, während die Sonne langsam unterging. So konnten wir mit verschiedenen Stimmungen und Stilen experimentieren – entstanden ist eine vielseitige Bildsammlung, die dieser Marke einen grossartigen Start ermöglicht.',
+    introBeautyMeetsNature: 'Manchmal braucht es nur ein Model, eine schöne Location und die Blitzausrüstung. Ich liebe es, mit dem Zusammenspiel von Menschen und Objekten zu experimentieren, unerwartete Kombinationen auszuprobieren und etwas Einzigartiges zu schaffen.'
   };
 
   // English comes from the HTML itself, captured before any swap.
