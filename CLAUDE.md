@@ -19,6 +19,8 @@ Design proposal: https://claude.ai/artifact/Hv2pcb1JzeR6Cdmju54PZf
 Elements with `data-i18n="key"` get their text swapped; `data-i18n-aria="key"` swaps `aria-label`.
 Add a key to both the HTML (English) and the `de` dictionary in `js/main.js`.
 
+When changing `css/style.css` or `js/main.js`, bump the `?v=` number on its link in `index.html` so browsers don't keep the old file.
+
 ## Preview locally
 
 ```bash
