@@ -158,7 +158,7 @@ p { margin: 0; }
 .fan-stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 1515 / 605;
+  aspect-ratio: 1515 / 501;
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
@@ -170,7 +170,7 @@ p { margin: 0; }
 .fan-card {
   position: absolute;
   width: 25.3%;
-  height: 63.3%;
+  height: 76.4%;
   padding: 0;
   border: 0;
   border-radius: 22px;
@@ -182,8 +182,10 @@ p { margin: 0; }
   justify-content: space-between;
   text-align: left;
   transition: left .55s var(--ease), top .55s var(--ease), opacity .4s ease, box-shadow .3s ease;
+  color: var(--ink);
+  -webkit-user-drag: none;
 }
-.fan-card:hover { box-shadow: 0 18px 40px rgba(20, 40, 70, .18); }
+.fan-card:hover { box-shadow: 0 18px 40px rgba(20, 40, 70, .18); color: var(--ink); }
 .thumb { align-self: center; margin-top: 42%; font-size: 13px; color: rgba(20, 20, 20, .55); }
 .chip {
   margin: 14px;
@@ -207,11 +209,10 @@ p { margin: 0; }
 }
 .card-img + .chip { position: relative; margin-top: auto; }
 .num { font-family: var(--font-head); font-weight: 700; color: var(--accent); }
-.slot-m2 { left: 0; top: 0; z-index: 1; }
-.slot-m1 { left: 14.8%; top: 17.2%; z-index: 2; }
-.slot-0 { left: 37.35%; top: 36.7%; z-index: 3; }
-.slot-p1 { left: 59.9%; top: 17.2%; z-index: 2; }
-.slot-p2 { left: 74.7%; top: 0; z-index: 1; }
+.slot-m1 { left: 14.8%; top: 0; z-index: 2; }
+.slot-0 { left: 37.35%; top: 23.6%; z-index: 3; }
+.slot-p1 { left: 59.9%; top: 0; z-index: 2; }
+.slot-back { left: 37.35%; top: 0; opacity: 0; pointer-events: none; z-index: 0; }
 
 .caption {
   margin-top: 40px;
@@ -488,7 +489,7 @@ p { margin: 0; }
   .span-7, .span-5 { grid-column: 1 / -1; }
   .fan-stage { aspect-ratio: 10 / 9; }
   .fan-card { width: 56%; height: 62.2%; }
-  .slot-m2, .slot-p2 { left: 22%; top: 0; opacity: 0; pointer-events: none; z-index: 0; }
+  .slot-back { left: 22%; top: 0; }
   .slot-m1 { left: 4%; top: 10%; }
   .slot-0 { left: 22%; top: 37.8%; }
   .slot-p1 { left: 40%; top: 10%; }

@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=6">
-  <script src="js/main.js?v=6" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=7">
+  <script src="js/main.js?v=7" defer></script>
 </head>
 <body>
 
@@ -19,10 +19,10 @@
       <a href="#top" class="brand"><span class="dot" aria-hidden="true"></span>Regula Huber</a>
 
       <nav class="nav-tab" aria-label="Main" data-i18n-aria="navLabel">
-        <a href="#graphic" class="nav-link" data-i18n="graphic">Graphic</a>
-        <a href="#digital" class="nav-link" data-i18n="digital">Digital</a>
+        <a href="graphic/" class="nav-link" data-i18n="graphic">Graphic</a>
+        <a href="digital/" class="nav-link" data-i18n="digital">Digital</a>
         <a href="photo/" class="nav-link" data-i18n="photo">Photo</a>
-        <a href="#video" class="nav-link" data-i18n="video">Video</a>
+        <a href="video/" class="nav-link" data-i18n="video">Video</a>
         <span class="nav-sep" aria-hidden="true"></span>
         <a href="#about" class="nav-about" data-i18n="about">About</a>
       </nav>
@@ -38,31 +38,26 @@
     <!-- fanned carousel -->
     <div class="stage-wrap">
       <div class="fan-stage">
-        <button type="button" class="fan-card slot-m2" style="--card: #E2D6D2" data-href="#graphic">
-          <span class="thumb" data-i18n="thumb">[Thumbnail]</span>
+        <a class="fan-card slot-back" href="graphic/" style="--card: #E2D6D2" draggable="false">
+          <span class="thumb" data-i18n="thumb" aria-hidden="true">[Thumbnail]</span>
           <span class="chip"><span class="num">01</span><span class="card-name" data-i18n="graphic">Graphic</span></span>
           <span class="card-desc" data-i18n="dGraphic" hidden>Identity, print, editorial</span>
-        </button>
-        <button type="button" class="fan-card slot-m1" style="--card: #3FB3D1" data-href="#digital">
-          <span class="thumb" data-i18n="thumb">[Thumbnail]</span>
+        </a>
+        <a class="fan-card slot-m1" href="digital/" style="--card: #3FB3D1" draggable="false">
+          <span class="thumb" data-i18n="thumb" aria-hidden="true">[Thumbnail]</span>
           <span class="chip"><span class="num">02</span><span class="card-name" data-i18n="digital">Digital</span></span>
           <span class="card-desc" data-i18n="dDigital" hidden>Web, UI, interaction</span>
-        </button>
-        <button type="button" class="fan-card slot-0" style="--card: #8EEAF2" data-href="photo/">
+        </a>
+        <a class="fan-card slot-0" href="photo/" style="--card: #8EEAF2" draggable="false">
           <img class="card-img" src="assets/photography/beauty_meets_nature/photography_portrait_beauty_meets_nature_01.jpg" alt="" draggable="false" width="1080" height="1080">
           <span class="chip"><span class="num">03</span><span class="card-name" data-i18n="photo">Photo</span></span>
           <span class="card-desc" data-i18n="dPhoto" hidden>Portrait, product, places</span>
-        </button>
-        <button type="button" class="fan-card slot-p1" style="--card: #63E6B4" data-href="#video">
-          <span class="thumb" data-i18n="thumb">[Thumbnail]</span>
+        </a>
+        <a class="fan-card slot-p1" href="video/" style="--card: #63E6B4" draggable="false">
+          <span class="thumb" data-i18n="thumb" aria-hidden="true">[Thumbnail]</span>
           <span class="chip"><span class="num">04</span><span class="card-name" data-i18n="video">Video</span></span>
           <span class="card-desc" data-i18n="dVideo" hidden>Motion, short film, edit</span>
-        </button>
-        <button type="button" class="fan-card slot-p2" style="--card: #9DB9C7" data-href="#graphic">
-          <span class="thumb" data-i18n="thumb">[Thumbnail]</span>
-          <span class="chip"><span class="num">05</span><span class="card-name" data-i18n="diverse">Diverse</span></span>
-          <span class="card-desc" data-i18n="dDiverse" hidden>Experiments, side projects, everything in between</span>
-        </button>
+        </a>
       </div>
 
       <div class="caption">
@@ -92,14 +87,14 @@
       </div>
 
       <div class="work-grid">
-        <a id="graphic" href="#graphic" class="work-item span-7">
+        <a id="graphic" href="graphic/" class="work-item span-7">
           <div class="work-media ratio-wide">
             <span class="tab" data-i18n="graphic">Graphic</span>
             <span data-i18n="projectImage">[Project image]</span>
           </div>
           <div class="work-meta"><span data-i18n="projectTitle">[Project title]</span><span class="muted" data-i18n="year">[Year]</span></div>
         </a>
-        <a id="digital" href="#digital" class="work-item span-5">
+        <a id="digital" href="digital/" class="work-item span-5">
           <div class="work-media ratio-tall">
             <span class="tab" data-i18n="digital">Digital</span>
             <span data-i18n="projectImage">[Project image]</span>
@@ -113,7 +108,7 @@
           </div>
           <div class="work-meta"><span data-i18n="projectTitle">[Project title]</span><span class="muted" data-i18n="year">[Year]</span></div>
         </a>
-        <a id="video" href="#video" class="work-item span-7">
+        <a id="video" href="video/" class="work-item span-7">
           <div class="work-media ratio-wide is-video">
             <span class="tab" data-i18n="video">Video</span>
             <span class="play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M7 4l13 8-13 8z"/></svg></span>

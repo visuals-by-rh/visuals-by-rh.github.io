@@ -6,25 +6,22 @@
   var nameEl = document.getElementById('active-name');
   var descEl = document.getElementById('active-desc');
   var linkEl = document.getElementById('active-link');
-  var slots = { '-2': 'slot-m2', '-1': 'slot-m1', '0': 'slot-0', '1': 'slot-p1', '2': 'slot-p2' };
+  // left, front and right are visible; the 4th card waits hidden behind the front one
+  var slots = { '-1': 'slot-m1', '0': 'slot-0', '1': 'slot-p1', '2': 'slot-back' };
   var n = cards.length;
   var active = 2;
-  var labels = { show: 'Show {name}', selected: '{name} (selected)' };
-
-  function fill(template, name) {
-    return template.replace('{name}', name);
-  }
 
   function render() {
     cards.forEach(function (card, i) {
-      var off = ((i - active + n + 2) % n) - 2;
+      var off = ((i - active + n + 1) % n) - 1;
       card.className = 'fan-card ' + slots[String(off)];
-      var name = card.querySelector('.card-name').textContent;
-      card.setAttribute('aria-label', fill(off === 0 ? labels.selected : labels.show, name));
+      var hiddenCard = off === 2;
+      card.tabIndex = hiddenCard ? -1 : 0;
+      if (hiddenCard) card.setAttribute('aria-hidden', 'true'); else card.removeAttribute('aria-hidden');
       if (off === 0) {
-        nameEl.textContent = name;
+        nameEl.textContent = card.querySelector('.card-name').textContent;
         descEl.textContent = card.querySelector('.card-desc').textContent;
-        linkEl.setAttribute('href', card.dataset.href);
+        linkEl.setAttribute('href', card.getAttribute('href'));
       }
     });
   }
@@ -37,9 +34,6 @@
   // The carousel only exists on the homepage.
   var stage = document.querySelector('.fan-stage');
   if (stage) {
-    cards.forEach(function (card, i) {
-      card.addEventListener('click', function () { go(i); });
-    });
     document.getElementById('prev').addEventListener('click', function () { go(active - 1); });
     document.getElementById('next').addEventListener('click', function () { go(active + 1); });
 
@@ -123,11 +117,10 @@
   /* ---------- EN/DE language toggle ---------- */
   var de = {
     navLabel: 'Hauptnavigation', langLabel: 'Sprache',
-    graphic: 'Grafik', digital: 'Digital', photo: 'Foto', video: 'Video', diverse: 'Diverses', about: 'Über mich',
+    graphic: 'Grafik', digital: 'Digital', photo: 'Foto', video: 'Video', about: 'Über mich',
     dGraphic: 'Identität, Print, Editorial', dDigital: 'Web, UI, Interaktion', dPhoto: 'Porträt, Produkt, Orte',
-    dVideo: 'Motion, Kurzfilm, Schnitt', dDiverse: 'Experimente, Nebenprojekte und alles dazwischen',
+    dVideo: 'Motion, Kurzfilm, Schnitt',
     thumb: '[Vorschaubild]', viewProjects: 'Projekte ansehen', prev: 'Vorherige Kategorie', next: 'Nächste Kategorie',
-    show: '{name} anzeigen', selected: '{name} (ausgewählt)',
     selectedWork: 'Ausgewählte Arbeiten', workSub: 'Jedes Projekt auf einer ruhigen, weissen Bühne',
     projectImage: '[Projektbild]', videoStill: '[Videostill]', projectTitle: '[Projekttitel]', year: '[Jahr]',
     viewAll: 'Alle Projekte ansehen', aboutMe: 'Über mich', portrait: '[Porträtfoto]',
@@ -135,7 +128,9 @@
     aboutText: '[Platzhalter: ein kurzer Absatz über deinen Hintergrund, was du am liebsten gestaltest und mit wem du gerne zusammenarbeitest. Zwei bis vier Sätze reichen.]',
     contact: 'Kontakt aufnehmen', cv: 'Lebenslauf herunterladen',
     filterLabel: 'Nach Kategorie filtern', all: 'Alle', portraits: 'Porträts', branding: 'Branding',
-    events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noPhotos: 'Noch keine Fotos in dieser Kategorie.',
+    events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noItems: 'Noch keine Projekte in dieser Kategorie.',
+    print: 'Print',
+    websites: 'Websites', socialMedia: 'Social Media', animations: 'Animationen', games: 'Games',
     more: 'Mehr', backToPhoto: 'Zurück zu Foto', labelYear: 'Jahr', labelLocation: 'Ort',
     locZurich: 'Zürich',
     introLiquidsAtelier: 'Grossartige Marken verdienen grossartige Fotos. Wir hatten viel Spass, diese Bilder an einem warmen Sommerabend zu gestalten und mit dem wechselnden Tageslicht zu spielen, während die Sonne langsam unterging. So konnten wir mit verschiedenen Stimmungen und Stilen experimentieren – entstanden ist eine vielseitige Bildsammlung, die dieser Marke einen grossartigen Start ermöglicht.',
@@ -143,7 +138,7 @@
   };
 
   // English comes from the HTML itself, captured before any swap.
-  var en = { show: labels.show, selected: labels.selected };
+  var en = {};
   var textEls = document.querySelectorAll('[data-i18n]');
   var ariaEls = document.querySelectorAll('[data-i18n-aria]');
   Array.prototype.forEach.call(textEls, function (el) { en[el.dataset.i18n] = el.textContent; });
@@ -159,7 +154,6 @@
     Array.prototype.forEach.call(langButtons, function (b) {
       b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
     });
-    labels = { show: dict.show, selected: dict.selected };
     render();
     if (remember) {
       try { localStorage.setItem('lang', lang); } catch (e) { /* storage blocked */ }
