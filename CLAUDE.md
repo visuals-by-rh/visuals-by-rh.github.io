@@ -12,14 +12,25 @@ Design proposal: https://claude.ai/artifact/Hv2pcb1JzeR6Cdmju54PZf
 
 ## Layout
 
-- `index.html` – the one-page site. English copy lives here.
+- `index.html` – the homepage. English copy lives here.
+- `photo/index.html` – the Photo page: filters and gallery. Its header and footer are copies of the homepage's; keep them in sync.
+- `assets/` – images. Photos for the Photo page go in `assets/photo/`.
 - `css/style.css` – all styles; colors and sizes as variables on `:root`.
-- `js/main.js` – category carousel and EN/DE language toggle (German strings live here).
+- `js/main.js` – shared by both pages: carousel (homepage only), photo filters (Photo page only), EN/DE toggle (German strings live here).
 
 Elements with `data-i18n="key"` get their text swapped; `data-i18n-aria="key"` swaps `aria-label`.
 Add a key to both the HTML (English) and the `de` dictionary in `js/main.js`.
 
 When changing `css/style.css` or `js/main.js`, bump the `?v=` number on its link in `index.html` so browsers don't keep the old file.
+
+## Adding a photo
+
+1. Resize to about 1600px on the long side, JPEG, under 400 KB.
+2. Upload it to `assets/photo/` (lowercase name with dashes, e.g. `anna-wedding.jpg`).
+3. In `photo/index.html`, copy a `<figure class="shot">` block inside `.gallery` and set `src`, `alt`, `width` and `height` (the image's real pixel size).
+4. Set `data-tags` to one or more of `portraits branding events wedding sport`, separated by spaces. A photo with several tags shows under each of those filters.
+
+Photos appear in the order they're listed. A new filter needs a button in `.filters` (`data-filter` + `data-i18n`) and a German label in `js/main.js`.
 
 ## Preview locally
 
