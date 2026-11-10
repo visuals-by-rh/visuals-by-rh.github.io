@@ -136,6 +136,7 @@
     contact: 'Kontakt aufnehmen', cv: 'Lebenslauf herunterladen',
     filterLabel: 'Nach Kategorie filtern', all: 'Alle', portraits: 'Porträts', branding: 'Branding',
     events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noItems: 'Noch keine Projekte in dieser Kategorie.',
+    print: 'Print',
     more: 'Mehr', backToPhoto: 'Zurück zu Foto', labelYear: 'Jahr', labelLocation: 'Ort',
     locZurich: 'Zürich',
     introLiquidsAtelier: 'Grossartige Marken verdienen grossartige Fotos. Wir hatten viel Spass, diese Bilder an einem warmen Sommerabend zu gestalten und mit dem wechselnden Tageslicht zu spielen, während die Sonne langsam unterging. So konnten wir mit verschiedenen Stimmungen und Stilen experimentieren – entstanden ist eine vielseitige Bildsammlung, die dieser Marke einen grossartigen Start ermöglicht.',
