@@ -254,6 +254,15 @@ p { margin: 0; }
   transition: transform .3s ease;
 }
 .work-item:hover .work-media { transform: translateY(-4px); }
+/* a real image fills its tile; the tab covers the squared top-left corner */
+.work-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 24px 24px 24px;
+}
 .ratio-wide { aspect-ratio: 4 / 3; }
 .ratio-tall { aspect-ratio: 4 / 5; }
 .is-video { background: var(--ink); color: #CFCFC8; }
