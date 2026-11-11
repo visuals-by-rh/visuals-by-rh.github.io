@@ -455,6 +455,8 @@ p { margin: 0; }
 .project-meta dd { margin: 6px 0 0; font-size: 15px; }
 .project-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .project-shot.is-wide { grid-column: 1 / -1; }
+/* a lone last photo (odd count, no wide first photo) sits centred */
+.project-shot:first-child:not(.is-wide) ~ .project-shot:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 12px); }
 .project-shot { margin: 0; border-radius: 24px; overflow: hidden; background: var(--tile); }
 .project-shot img { display: block; width: 100%; height: auto; }
 
@@ -492,6 +494,7 @@ p { margin: 0; }
   .gallery { padding: 40px 16px 32px; }
   .project { padding: 56px 16px 72px; }
   .project-photos { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .project-shot:first-child:not(.is-wide) ~ .project-shot:last-child:nth-child(odd) { width: auto; justify-self: stretch; }
   .filter { padding: 0 14px; font-size: 12px; letter-spacing: .04em; }
 }
 @media (prefers-reduced-motion: reduce) {
