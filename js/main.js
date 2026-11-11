@@ -128,7 +128,7 @@
     dGraphic: 'Identität, Print, Editorial', dDigital: 'Web, UI, Interaktion', dPhoto: 'Porträt, Produkt, Orte',
     dVideo: 'Motion, Kurzfilm, Schnitt',
     thumb: '[Vorschaubild]', viewProjects: 'Projekte ansehen', prev: 'Vorherige Kategorie', next: 'Nächste Kategorie',
-    selectedWork: 'Ausgewählte Arbeiten', workSub: 'Jedes Projekt auf einer ruhigen, weissen Bühne',
+    selectedWork: 'Highlights', workSub: 'Jedes Projekt auf einer ruhigen, weissen Bühne',
     projectImage: '[Projektbild]', videoStill: '[Videostill]', projectTitle: '[Projekttitel]', year: '[Jahr]',
     viewAll: 'Alle Projekte ansehen', aboutMe: 'Über mich', portrait: '[Porträtfoto]',
     aboutHeading: '[Ein Satz darüber, wie du arbeitest.]',
