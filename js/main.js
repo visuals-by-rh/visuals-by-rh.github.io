@@ -140,6 +140,8 @@
     websites: 'Websites', socialMedia: 'Social Media', animations: 'Animationen', games: 'Games',
     more: 'Mehr', backToPhoto: 'Zurück zu Foto', labelYear: 'Jahr', labelLocation: 'Ort',
     locZurich: 'Zürich',
+    locKriens: 'Kriens, Schweiz',
+    introCivilWedding: 'Momente festhalten, die ein Leben lang bleiben.',
     introLiquidsAtelier: 'Grossartige Marken verdienen grossartige Fotos. Wir hatten viel Spass, diese Bilder an einem warmen Sommerabend zu gestalten und mit dem wechselnden Tageslicht zu spielen, während die Sonne langsam unterging. So konnten wir mit verschiedenen Stimmungen und Stilen experimentieren – entstanden ist eine vielseitige Bildsammlung, die dieser Marke einen grossartigen Start ermöglicht.',
     introBeautyMeetsNature: 'Manchmal braucht es nur ein Model, eine schöne Location und die Blitzausrüstung. Ich liebe es, mit dem Zusammenspiel von Menschen und Objekten zu experimentieren, unerwartete Kombinationen auszuprobieren und etwas Einzigartiges zu schaffen.'
   };
