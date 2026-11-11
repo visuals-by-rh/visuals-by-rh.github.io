@@ -281,10 +281,11 @@ p { margin: 0; }
 /* white corner tab with inverted rounded corners */
 .tab {
   --r: 18px;
+  --tab-bg: var(--paper);
   position: absolute;
   top: 0;
   left: 0;
-  background: var(--paper);
+  background: var(--tab-bg);
   padding: 10px 18px 12px 4px;
   border-radius: 0 0 var(--r) 0;
   font-size: 12px;
@@ -302,7 +303,7 @@ p { margin: 0; }
   position: absolute;
   width: var(--r);
   height: var(--r);
-  background: radial-gradient(circle at 100% 100%, transparent calc(var(--r) - .5px), var(--paper) var(--r));
+  background: radial-gradient(circle at 100% 100%, transparent calc(var(--r) - .5px), var(--tab-bg) var(--r));
 }
 .tab::before { top: 0; right: calc(var(--r) * -1); }
 .tab::after { left: 0; bottom: calc(var(--r) * -1); }
@@ -310,7 +311,7 @@ p { margin: 0; }
 /* the same tab, mirrored into the bottom-right corner */
 .tab-br { top: auto; left: auto; right: 0; bottom: 0; padding: 12px 4px 10px 18px; border-radius: var(--r) 0 0 0; }
 .tab-br::before,
-.tab-br::after { background: radial-gradient(circle at 0 0, transparent calc(var(--r) - .5px), var(--paper) var(--r)); }
+.tab-br::after { background: radial-gradient(circle at 0 0, transparent calc(var(--r) - .5px), var(--tab-bg) var(--r)); }
 .tab-br::before { top: calc(var(--r) * -1); right: 0; }
 .tab-br::after { left: calc(var(--r) * -1); bottom: 0; }
 
