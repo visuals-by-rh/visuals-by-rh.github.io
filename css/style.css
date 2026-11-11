@@ -153,12 +153,14 @@ p { margin: 0; }
 }
 .lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 
-/* fanned carousel */
+/* category cards: an arched row of four */
 .stage-wrap { max-width: 1240px; margin: 0 auto; padding: 96px 24px 0; }
 .fan-stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1515 / 501;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  padding-top: 16px;
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
@@ -168,9 +170,8 @@ p { margin: 0; }
 .fan-stage.is-dragging { cursor: grabbing; transition: none; }
 .fan-stage.is-dragging .fan-card { cursor: grabbing; }
 .fan-card {
-  position: absolute;
-  width: 25.3%;
-  height: 76.4%;
+  position: relative;
+  aspect-ratio: 1;
   padding: 0;
   border: 0;
   border-radius: 22px;
@@ -181,11 +182,14 @@ p { margin: 0; }
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  transition: left .55s var(--ease), top .55s var(--ease), opacity .4s ease, box-shadow .3s ease;
+  transition: transform .45s var(--ease);
   color: var(--ink);
   -webkit-user-drag: none;
 }
-.fan-card:hover { box-shadow: 0 18px 40px rgba(20, 40, 70, .18); color: var(--ink); }
+/* the two inner cards sit lower, giving the row its arch */
+.fan-card:nth-child(2), .fan-card:nth-child(3) { margin-top: 18%; }
+.fan-card.is-active { transform: translateY(-16px); }
+.fan-card:hover { color: var(--ink); }
 .thumb { align-self: center; margin-top: 42%; font-size: 13px; color: rgba(20, 20, 20, .55); }
 .chip {
   margin: 14px;
@@ -209,10 +213,6 @@ p { margin: 0; }
 }
 .card-img + .chip { position: relative; margin-top: auto; }
 .num { font-family: var(--font-head); font-weight: 700; color: var(--accent); }
-.slot-m1 { left: 14.8%; top: 0; z-index: 2; }
-.slot-0 { left: 37.35%; top: 23.6%; z-index: 3; }
-.slot-p1 { left: 59.9%; top: 0; z-index: 2; }
-.slot-back { left: 37.35%; top: 0; opacity: 0; pointer-events: none; z-index: 0; }
 
 .caption {
   margin-top: 40px;
@@ -488,12 +488,9 @@ p { margin: 0; }
   .work { padding: 88px 20px; }
   .work-grid { grid-template-columns: minmax(0, 1fr); row-gap: 56px; }
   .span-7, .span-5 { grid-column: 1 / -1; }
-  .fan-stage { aspect-ratio: 10 / 9; }
-  .fan-card { width: 56%; height: 62.2%; }
-  .slot-back { left: 22%; top: 0; }
-  .slot-m1 { left: 4%; top: 10%; }
-  .slot-0 { left: 22%; top: 37.8%; }
-  .slot-p1 { left: 40%; top: 10%; }
+  .fan-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 8px; }
+  .fan-card:nth-child(2), .fan-card:nth-child(3) { margin-top: 0; }
+  .fan-card.is-active { transform: translateY(-8px); }
 }
 @media (max-width: 520px) {
   .nav-tab { padding: 10px 10px 12px; }

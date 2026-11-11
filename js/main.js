@@ -6,19 +6,14 @@
   var nameEl = document.getElementById('active-name');
   var descEl = document.getElementById('active-desc');
   var linkEl = document.getElementById('active-link');
-  // left, front and right are visible; the 4th card waits hidden behind the front one
-  var slots = { '-1': 'slot-m1', '0': 'slot-0', '1': 'slot-p1', '2': 'slot-back' };
   var n = cards.length;
   var active = 2;
 
   function render() {
     cards.forEach(function (card, i) {
-      var off = ((i - active + n + 1) % n) - 1;
-      card.className = 'fan-card ' + slots[String(off)];
-      var hiddenCard = off === 2;
-      card.tabIndex = hiddenCard ? -1 : 0;
-      if (hiddenCard) card.setAttribute('aria-hidden', 'true'); else card.removeAttribute('aria-hidden');
-      if (off === 0) {
+      var on = i === active;
+      card.classList.toggle('is-active', on);
+      if (on) {
         nameEl.textContent = card.querySelector('.card-name').textContent;
         descEl.textContent = card.querySelector('.card-desc').textContent;
         linkEl.setAttribute('href', card.getAttribute('href'));
@@ -37,7 +32,7 @@
     document.getElementById('prev').addEventListener('click', function () { go(active - 1); });
     document.getElementById('next').addEventListener('click', function () { go(active + 1); });
 
-    /* drag / swipe: left shows the next card, right the previous one */
+    /* drag / swipe: left highlights the next card, right the previous one */
     var drag = null;
     var suppressClick = false;
 
@@ -74,6 +69,15 @@
     stage.addEventListener('click', function (e) {
       if (suppressClick) { e.stopPropagation(); e.preventDefault(); }
     }, true);
+
+    /* hovering with a mouse or tabbing to a card highlights it */
+    cards.forEach(function (card, i) {
+      card.addEventListener('pointerenter', function (e) {
+        if (e.pointerType === 'mouse' && !drag) go(i);
+      });
+      // keyboard focus only: a mouse press also focuses, and must not move the highlight mid-drag
+      card.addEventListener('focus', function () { if (card.matches(':focus-visible')) go(i); });
+    });
   }
 
   /* ---------- photo filters (Photo page) ---------- */
