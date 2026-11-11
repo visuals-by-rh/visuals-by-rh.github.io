@@ -194,8 +194,6 @@ p { margin: 0; }
 /* the label is a corner tab cut out of the card in the hero's colour */
 .fan-card { border-bottom-right-radius: 0; }
 .fan-card .tab-br { --tab-bg: var(--hero); }
-.fan-card .tab-br svg { transition: transform .3s var(--ease); }
-.fan-card:hover .tab-br svg, .fan-card:focus-visible .tab-br svg { transform: translateX(3px); }
 .card-img {
   position: absolute;
   inset: 0;
@@ -413,8 +411,6 @@ p { margin: 0; }
 .shot-link:focus-visible { outline-offset: -4px; }
 .shot-link img { transition: transform .4s var(--ease); }
 .shot-link:hover img, .shot-link:focus-visible img { transform: scale(1.03); }
-.tab-br svg { transition: transform .3s var(--ease); }
-.shot-link:hover .tab-br svg, .shot-link:focus-visible .tab-br svg { transform: translateX(3px); }
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -497,5 +493,5 @@ p { margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .fan-stage, .fan-card, .work-media, .shot-link img, .tab-br svg, .fan-card .tab-br svg { transition: none; }
+  .fan-stage, .fan-card, .work-media, .shot-link img { transition: none; }
 }
