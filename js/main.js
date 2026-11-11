@@ -35,6 +35,7 @@
     /* drag / swipe: left highlights the next card, right the previous one */
     var drag = null;
     var suppressClick = false;
+    var dragEndedAt = 0;
 
     stage.addEventListener('pointerdown', function (e) {
       if (e.button !== 0) return;
@@ -60,6 +61,7 @@
         stage.classList.remove('is-dragging');
         // the click that follows a drag must not pick a card
         suppressClick = true;
+        dragEndedAt = Date.now();
         setTimeout(function () { suppressClick = false; }, 0);
       }
       drag = null;
@@ -73,7 +75,8 @@
     /* hovering with a mouse or tabbing to a card highlights it */
     cards.forEach(function (card, i) {
       card.addEventListener('pointerenter', function (e) {
-        if (e.pointerType === 'mouse' && !drag) go(i);
+        // ignore the enter event the browser fires when a drag is released over a card
+        if (e.pointerType === 'mouse' && !drag && Date.now() - dragEndedAt > 400) go(i);
       });
       // keyboard focus only: a mouse press also focuses, and must not move the highlight mid-drag
       card.addEventListener('focus', function () { if (card.matches(':focus-visible')) go(i); });
