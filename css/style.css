@@ -190,19 +190,12 @@ p { margin: 0; }
 .fan-card:nth-child(2), .fan-card:nth-child(3) { margin-top: 18%; }
 .fan-card.is-active { transform: translateY(-16px); }
 .fan-card:hover { color: var(--ink); }
-.thumb { align-self: center; margin-top: 42%; font-size: 13px; color: rgba(20, 20, 20, .55); }
-.chip {
-  margin: 14px;
-  align-self: flex-start;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  background: var(--paper);
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 600;
-}
+.thumb { margin: auto; font-size: 13px; color: rgba(20, 20, 20, .55); }
+/* the label is a corner tab cut out of the card in the hero's colour */
+.fan-card { border-bottom-right-radius: 0; }
+.fan-card .tab-br { --tab-bg: var(--hero); }
+.fan-card .tab-br svg { transition: transform .3s var(--ease); }
+.fan-card:hover .tab-br svg, .fan-card:focus-visible .tab-br svg { transform: translateX(3px); }
 .card-img {
   position: absolute;
   inset: 0;
@@ -211,8 +204,6 @@ p { margin: 0; }
   object-fit: cover;
   object-position: center 35%;
 }
-.card-img + .chip { position: relative; margin-top: auto; }
-.num { font-family: var(--font-head); font-weight: 700; color: var(--accent); }
 
 .caption {
   margin-top: 40px;
@@ -506,5 +497,5 @@ p { margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .fan-stage, .fan-card, .work-media, .shot-link img, .tab-br svg { transition: none; }
+  .fan-stage, .fan-card, .work-media, .shot-link img, .tab-br svg, .fan-card .tab-br svg { transition: none; }
 }
