@@ -22,7 +22,7 @@ Design proposal: https://claude.ai/artifact/Hv2pcb1JzeR6Cdmju54PZf
 - `css/style.css` – all styles; colors and sizes as variables on `:root`.
 - `js/main.js` – shared by all pages: carousel (homepage only), filters (category pages), EN/DE toggle (German strings live here).
 
-The homepage carousel has one card per category; each card links to its category page. Left, front and right cards are visible, a 4th waits hidden behind the front one.
+The homepage shows one card per category in an arched row (2×2 on phones); each card links to its category page and is labelled with a corner tab in the hero colour (`.tab.tab-br`, `--tab-bg: var(--hero)`). One card is highlighted (raised) and described below; arrows, drag/swipe, hover and Tab move the highlight.
 
 Elements with `data-i18n="key"` get their text swapped; `data-i18n-aria="key"` swaps `aria-label`.
 Add a key to both the HTML (English) and the `de` dictionary in `js/main.js`.
