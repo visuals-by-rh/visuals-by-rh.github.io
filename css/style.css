@@ -221,26 +221,35 @@ p { margin: 0; }
 .controls .btn { padding: 12px 22px; }
 
 /* ---------- selected work ---------- */
-.work { max-width: 1280px; margin: 0 auto; padding: 144px 24px; }
+/* content width matches the 1200px blue panels */
+.work { max-width: 1248px; margin: 0 auto; padding: 176px 24px; }
 .work-head {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   gap: 12px 16px;
-  margin-bottom: 72px;
+  margin-bottom: 112px;
 }
 .work-head h2 { font-size: clamp(30px, 4vw, 40px); letter-spacing: -0.02em; }
 .work-head .muted { font-size: 15px; }
 .work-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 64px;
-  row-gap: 104px;
+  column-gap: 48px;
+  row-gap: 136px;
+  align-items: start;
 }
 .work-item { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.span-7 { grid-column: span 7; }
-.span-5 { grid-column: span 5; }
+/* four tiles in four sizes, staggered, with room to breathe */
+.hl-1 { grid-column: 1 / 8; }
+.hl-1 .work-media { aspect-ratio: 1600 / 1135; }
+.hl-2 { grid-column: 9 / 13; margin-top: 180px; }
+.hl-2 .work-media { aspect-ratio: 4 / 5; }
+.hl-3 { grid-column: 2 / 7; }
+.hl-3 .work-media { aspect-ratio: 1; }
+.hl-4 { grid-column: 7 / 13; margin-top: 120px; }
+.hl-4 .work-media { aspect-ratio: 16 / 9; }
 .work-media {
   position: relative;
   background: var(--tile);
@@ -263,8 +272,6 @@ p { margin: 0; }
   object-fit: cover;
   border-radius: 0 24px 24px 24px;
 }
-.ratio-wide { aspect-ratio: 4 / 3; }
-.ratio-tall { aspect-ratio: 4 / 5; }
 .is-video { background: var(--ink); color: #CFCFC8; }
 .play {
   width: 56px;
@@ -469,8 +476,10 @@ p { margin: 0; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1024px) {
-  .work { padding: 112px 24px; }
-  .work-grid { column-gap: 40px; row-gap: 80px; }
+  .work { padding: 136px 24px; }
+  .work-grid { column-gap: 32px; row-gap: 96px; }
+  .hl-2 { margin-top: 120px; }
+  .hl-4 { margin-top: 80px; }
 }
 @media (max-width: 860px) {
   .brand, .lang { position: static; margin-top: 16px; }
@@ -484,9 +493,11 @@ p { margin: 0; }
   .hero { width: calc(100% - 16px); margin-top: 8px; border-radius: 24px; }
   .about { width: calc(100% - 16px); border-radius: 24px; }
   .about-inner { padding: 96px 20px 72px; gap: 40px; }
-  .work { padding: 88px 20px; }
-  .work-grid { grid-template-columns: minmax(0, 1fr); row-gap: 56px; }
-  .span-7, .span-5 { grid-column: 1 / -1; }
+  .work { padding: 104px 20px; }
+  .work-grid { grid-template-columns: minmax(0, 1fr); row-gap: 64px; }
+  .hl-1, .hl-2, .hl-3, .hl-4 { grid-column: 1 / -1; margin-top: 0; }
+  .hl-2 { width: 78%; justify-self: end; }
+  .hl-3 { width: 86%; }
   .fan-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 8px; }
   .fan-card:nth-child(2), .fan-card:nth-child(3) { margin-top: 0; }
   .fan-card.is-active { transform: translateY(-8px); }
