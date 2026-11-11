@@ -62,8 +62,11 @@ p { margin: 0; }
 .round:hover { background: var(--ink); color: var(--paper); }
 
 /* ---------- hero ---------- */
+/* blue panels stop at 1200px and sit centred on large screens */
 .hero {
-  margin: 16px 16px 0;
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  margin: 16px auto 0;
   border-radius: 32px;
   background: var(--hero);
   padding-bottom: 72px;
@@ -305,7 +308,7 @@ p { margin: 0; }
 .tab-br::after { left: calc(var(--r) * -1); bottom: 0; }
 
 /* ---------- about ---------- */
-.about { position: relative; margin: 0 16px; border-radius: 32px; background: var(--about); }
+.about { position: relative; width: calc(100% - 32px); max-width: 1200px; margin: 0 auto; border-radius: 32px; background: var(--about); }
 .about-inner {
   max-width: 1280px;
   margin: 0 auto;
@@ -469,8 +472,8 @@ p { margin: 0; }
   .page-head { padding-top: 56px; }
 }
 @media (max-width: 720px) {
-  .hero { margin: 8px 8px 0; border-radius: 24px; }
-  .about { margin: 0 8px; border-radius: 24px; }
+  .hero { width: calc(100% - 16px); margin-top: 8px; border-radius: 24px; }
+  .about { width: calc(100% - 16px); border-radius: 24px; }
   .about-inner { padding: 96px 20px 72px; gap: 40px; }
   .work { padding: 88px 20px; }
   .work-grid { grid-template-columns: minmax(0, 1fr); row-gap: 56px; }
