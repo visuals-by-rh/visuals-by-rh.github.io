@@ -26,6 +26,8 @@ Design proposal: https://claude.ai/artifact/Hv2pcb1JzeR6Cdmju54PZf
 
 The homepage shows one card per category in an arched row (2×2 on phones); each card links to its category page and is labelled with a corner tab in the hero colour (`.tab.tab-br`, `--tab-bg: var(--hero)`). One card is highlighted (raised) and described below; arrows, drag/swipe, hover and Tab move the highlight.
 
+Below it, **Highlights** shows one tile per category in four sizes on a staggered grid (`.hl-1`…`.hl-4`); a tile's image goes in `<img class="work-img">` and should match that tile's shape (Graphic 1600:1135, Digital 4:5, Photo 1:1, Video 16:9).
+
 Elements with `data-i18n="key"` get their text swapped; `data-i18n-aria="key"` swaps `aria-label`.
 Add a key to both the HTML (English) and the `de` dictionary in `js/main.js`.
 
