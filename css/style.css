@@ -266,8 +266,6 @@ p { margin: 0; }
   align-items: center;
   justify-content: center;
 }
-.work-meta { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; padding: 0 4px; }
-.work-meta span:first-child { font-weight: 600; }
 .work .center { margin-top: 96px; }
 
 /* white corner tab with inverted rounded corners */

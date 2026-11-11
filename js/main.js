@@ -129,7 +129,7 @@
     dVideo: 'Motion, Kurzfilm, Schnitt',
     thumb: '[Vorschaubild]', viewProjects: 'Projekte ansehen', prev: 'Vorherige Kategorie', next: 'Nächste Kategorie',
     selectedWork: 'Highlights', workSub: 'Jedes Projekt auf einer ruhigen, weissen Bühne',
-    projectImage: '[Projektbild]', videoStill: '[Videostill]', projectTitle: '[Projekttitel]', year: '[Jahr]',
+    projectImage: '[Projektbild]', videoStill: '[Videostill]',
     viewAll: 'Alle Projekte ansehen', aboutMe: 'Über mich', portrait: '[Porträtfoto]',
     aboutHeading: '[Ein Satz darüber, wie du arbeitest.]',
     aboutText: '[Platzhalter: ein kurzer Absatz über deinen Hintergrund, was du am liebsten gestaltest und mit wem du gerne zusammenarbeitest. Zwei bis vier Sätze reichen.]',
