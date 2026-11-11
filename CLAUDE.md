@@ -18,7 +18,9 @@ Design proposal: https://claude.ai/artifact/Hv2pcb1JzeR6Cdmju54PZf
   - Digital filters: `websites social-media animations games`
   - Photo and Video filters: `portraits branding events wedding sport`
 - `<category>/<project>/index.html` – one page per project (e.g. `photo/beauty-meets-nature/`). Same header and footer copy; paths start with `../../`.
-- `assets/photography/<project_name>/` – photos, one folder per project (e.g. `assets/photography/liquids_atelier/`), named `photography_<tag>_<project_name>_NN.jpg`.
+- `assets/` – images, one folder per category and one subfolder per project:
+  - `assets/photography/<project_name>/` – photos, e.g. `assets/photography/liquids_atelier/photography_branding_liquids_atelier_01.jpg`
+  - `assets/graphic/`, `assets/digital/`, `assets/video/` – same pattern, files named `<category>_<tag>_<project_name>_NN.jpg` (video: cover images only, videos stay on Vimeo). Each has a README with its tags.
 - `css/style.css` – all styles; colors and sizes as variables on `:root`.
 - `js/main.js` – shared by all pages: carousel (homepage only), filters (category pages), EN/DE toggle (German strings live here).
 
