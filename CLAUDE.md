@@ -42,6 +42,12 @@ When changing `css/style.css` or `js/main.js`, bump the `?v=` number on their li
 
 Photos appear in the order they're listed. A new filter needs a button in `.filters` (`data-filter` + `data-i18n`) and a German label in `js/main.js`.
 
+## Adding a Vimeo video
+
+On a category page, add a figure at the top of `.gallery` (see the logo animation on `graphic/index.html`):
+`<figure class="shot shot-video" data-tags="…"><div class="video-frame"><iframe src="https://player.vimeo.com/video/<ID>?dnt=1&amp;title=0&amp;byline=0&amp;portrait=0" title="…" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></figure>`.
+Videos span the full gallery width; `.video-frame` is 16:9 (give it another `aspect-ratio` for square or vertical videos). `dnt=1` keeps Vimeo from setting tracking cookies.
+
 ## Adding a project page
 
 1. Copy the folder `photo/beauty-meets-nature/` into the right category and rename it (lowercase with dashes, e.g. `photo/summer-wedding/`).
