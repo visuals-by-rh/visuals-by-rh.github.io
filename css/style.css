@@ -232,7 +232,6 @@ p { margin: 0; }
   margin-bottom: 112px;
 }
 .work-head h2 { font-size: clamp(30px, 4vw, 40px); letter-spacing: -0.02em; }
-.work-head .muted { font-size: 15px; }
 .work-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
