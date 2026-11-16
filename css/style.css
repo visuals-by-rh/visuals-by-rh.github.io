@@ -346,15 +346,6 @@ p { margin: 0; }
   font-size: 14px;
 }
 .portrait-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
-.portrait-dot {
-  position: absolute;
-  right: -10px;
-  bottom: -10px;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--accent);
-}
 .about-text { flex: 999 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 .about-text h2 { font-size: clamp(30px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.025em; }
 .about-text p { font-size: 18px; line-height: 1.65; color: #353C45; max-width: 620px; }
