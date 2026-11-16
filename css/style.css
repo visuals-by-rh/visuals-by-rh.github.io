@@ -326,10 +326,10 @@ p { margin: 0; }
 .about-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 120px 24px 104px;
+  padding: 120px 72px 104px;
   display: flex;
   flex-wrap: wrap;
-  gap: 64px;
+  gap: 72px;
   align-items: center;
 }
 .portrait {
@@ -345,19 +345,23 @@ p { margin: 0; }
   color: #5E6875;
   font-size: 14px;
 }
-.portrait-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
-.portrait-dot {
+.portrait-img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; transition: transform .5s var(--ease); }
+/* hover: the photo lifts off an orange layer, like an offset print slipping out of register */
+.portrait::before {
+  content: "";
   position: absolute;
-  right: -10px;
-  bottom: -10px;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
+  inset: 0;
+  border-radius: inherit;
   background: var(--accent);
+  transform: scale(.94); /* hidden behind the photo at rest, so no orange edge shows */
+  transition: transform .5s var(--ease);
 }
+.portrait:hover::before { transform: translate(16px, 16px) rotate(2.5deg); }
+.portrait:hover .portrait-img { transform: translate(-6px, -6px) rotate(-1.5deg); }
 .about-text { flex: 999 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 .about-text h2 { font-size: clamp(30px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.025em; }
 .about-text p { font-size: 18px; line-height: 1.65; color: #353C45; max-width: 620px; }
+.about-text .about-ps { font-size: 15px; color: var(--muted); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 
 /* ---------- footer ---------- */
@@ -497,7 +501,7 @@ p { margin: 0; }
 @media (max-width: 720px) {
   .hero { width: calc(100% - 16px); margin-top: 8px; border-radius: 24px; }
   .about { width: calc(100% - 16px); border-radius: 24px; }
-  .about-inner { padding: 96px 20px 72px; gap: 40px; }
+  .about-inner { padding: 96px 32px 72px; gap: 48px; }
   .work { padding: 104px 20px; }
   .work-grid { grid-template-columns: minmax(0, 1fr); row-gap: 64px; }
   .hl-1, .hl-2, .hl-3, .hl-4 { grid-column: 1 / -1; margin-top: 0; }
@@ -522,5 +526,7 @@ p { margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .fan-stage, .fan-card, .work-media, .shot-link img { transition: none; }
+  .fan-stage, .fan-card, .work-media, .shot-link img, .portrait-img, .portrait::before { transition: none; }
+  .portrait:hover .portrait-img { transform: none; }
+  .portrait:hover::before { transform: scale(.94); }
 }
