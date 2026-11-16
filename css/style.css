@@ -361,6 +361,7 @@ p { margin: 0; }
 .about-text { flex: 999 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 .about-text h2 { font-size: clamp(30px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.025em; }
 .about-text p { font-size: 18px; line-height: 1.65; color: #353C45; max-width: 620px; }
+.about-text .about-ps { font-size: 15px; color: var(--muted); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 
 /* ---------- footer ---------- */
