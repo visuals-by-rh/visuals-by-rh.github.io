@@ -134,7 +134,7 @@
     aboutText1: 'Von Grafikdesign über Fotografie bis Video. Von Websites bis zu Mini-Games. Gute Ideen verdienen nach wie vor grossartiges Design.',
     aboutText2: 'Mit einem neuen Tool wie Mister Claude wird es besonders spannend. Lass uns also entdecken, was wir uns sonst noch ausdenken, gestalten und zum Leben erwecken können. Mehr folgt bald!',
     aboutText3: 'P.S. Den Titel habe ich nicht mehr geändert, seit ich mein LinkedIn-Profil eingerichtet habe. Und ehrlich gesagt bringt er es für mich immer noch perfekt auf den Punkt.',
-    contact: 'Kontakt aufnehmen', cv: 'Lebenslauf herunterladen',
+    contact: 'Kontakt aufnehmen',
     filterLabel: 'Nach Kategorie filtern', all: 'Alle', portraits: 'Porträts', branding: 'Branding',
     events: 'Events', wedding: 'Hochzeit', sport: 'Sport', noItems: 'Noch keine Projekte in dieser Kategorie.',
     print: 'Print',
