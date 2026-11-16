@@ -128,7 +128,7 @@
     dGraphic: 'Identität, Print, Editorial', dDigital: 'Web, UI, Interaktion', dPhoto: 'Porträt, Produkt, Orte',
     dVideo: 'Motion, Kurzfilm, Schnitt',
     thumb: '[Vorschaubild]', viewProjects: 'Projekte ansehen', prev: 'Vorherige Kategorie', next: 'Nächste Kategorie',
-    selectedWork: 'Highlights', workSub: 'Jedes Projekt auf einer ruhigen, weissen Bühne',
+    selectedWork: 'Highlights',
     projectImage: '[Projektbild]', videoStill: '[Videostill]',
     viewAll: 'Alle Projekte ansehen', aboutMe: 'Über mich',
     aboutText1: 'Von Grafikdesign über Fotografie bis Video. Von Websites bis zu Mini-Games. Gute Ideen verdienen nach wie vor grossartiges Design.',
