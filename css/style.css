@@ -345,7 +345,19 @@ p { margin: 0; }
   color: #5E6875;
   font-size: 14px;
 }
-.portrait-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.portrait-img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; transition: transform .5s var(--ease); }
+/* hover: the photo lifts off an orange layer, like an offset print slipping out of register */
+.portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  transform: scale(.94); /* hidden behind the photo at rest, so no orange edge shows */
+  transition: transform .5s var(--ease);
+}
+.portrait:hover::before { transform: translate(16px, 16px) rotate(2.5deg); }
+.portrait:hover .portrait-img { transform: translate(-6px, -6px) rotate(-1.5deg); }
 .about-text { flex: 999 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 .about-text h2 { font-size: clamp(30px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.025em; }
 .about-text p { font-size: 18px; line-height: 1.65; color: #353C45; max-width: 620px; }
@@ -513,5 +525,7 @@ p { margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .fan-stage, .fan-card, .work-media, .shot-link img { transition: none; }
+  .fan-stage, .fan-card, .work-media, .shot-link img, .portrait-img, .portrait::before { transition: none; }
+  .portrait:hover .portrait-img { transform: none; }
+  .portrait:hover::before { transform: scale(.94); }
 }
