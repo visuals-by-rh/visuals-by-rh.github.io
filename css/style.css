@@ -326,10 +326,10 @@ p { margin: 0; }
 .about-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 120px 24px 104px;
+  padding: 120px 72px 104px;
   display: flex;
   flex-wrap: wrap;
-  gap: 64px;
+  gap: 72px;
   align-items: center;
 }
 .portrait {
@@ -488,7 +488,7 @@ p { margin: 0; }
 @media (max-width: 720px) {
   .hero { width: calc(100% - 16px); margin-top: 8px; border-radius: 24px; }
   .about { width: calc(100% - 16px); border-radius: 24px; }
-  .about-inner { padding: 96px 20px 72px; gap: 40px; }
+  .about-inner { padding: 96px 32px 72px; gap: 48px; }
   .work { padding: 104px 20px; }
   .work-grid { grid-template-columns: minmax(0, 1fr); row-gap: 64px; }
   .hl-1, .hl-2, .hl-3, .hl-4 { grid-column: 1 / -1; margin-top: 0; }
